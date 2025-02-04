@@ -27,4 +27,14 @@ publishing {
 	publications.create<MavenPublication>("Library") {
 		from(components["java"])
 	}
+	
+	repositories {
+		maven {
+			url = uri("https://maven.pkg.github.com/shypl/maven")
+			credentials {
+				username = project.property("gpr.user") as String
+				password = project.property("gpr.key") as String
+			}
+		}
+	}
 }
