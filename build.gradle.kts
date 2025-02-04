@@ -38,3 +38,5 @@ publishing {
 		}
 	}
 }
+
+tasks["postRelease"].dependsOn(tasks["publish"])
