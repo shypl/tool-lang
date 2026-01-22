@@ -1,5 +1,5 @@
 plugins {
-	kotlin("jvm") version "2.1.10"
+	kotlin("jvm") version "2.3.0"
 	id("java-library")
 	id("maven-publish")
 	id("nebula.release") version "19.0.10"
@@ -33,4 +33,6 @@ publishing {
 	}
 }
 
-tasks["postRelease"].dependsOn(tasks["publish"])
+tasks.release {
+	finalizedBy(tasks.publish)
+}
