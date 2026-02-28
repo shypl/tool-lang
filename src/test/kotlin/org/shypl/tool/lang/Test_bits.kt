@@ -4,7 +4,6 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-@Suppress("ClassName")
 class Test_bits {
 	@Test
 	fun `check Int has`() {

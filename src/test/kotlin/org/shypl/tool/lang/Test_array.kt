@@ -3,7 +3,6 @@ package org.shypl.tool.lang
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-@Suppress("ClassName")
 class Test_array {
 	@Test
 	fun `check empty values`() {
