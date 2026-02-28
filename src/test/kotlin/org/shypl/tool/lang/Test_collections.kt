@@ -13,6 +13,13 @@ class Test_collections {
 		list.checkIndex(2)
 		assertFailsWith<IndexOutOfBoundsException> { list.checkIndex(-1) }
 		assertFailsWith<IndexOutOfBoundsException> { list.checkIndex(3) }
+		
+		val array = arrayOf(1, 2, 3)
+		array.checkIndex(0)
+		array.checkIndex(1)
+		array.checkIndex(2)
+		assertFailsWith<IndexOutOfBoundsException> { array.checkIndex(-1) }
+		assertFailsWith<IndexOutOfBoundsException> { array.checkIndex(3) }
 	}
 	
 	@Test
@@ -20,6 +27,10 @@ class Test_collections {
 		val list = listOf(null, "foo", "bar")
 		assertEquals("FOO", list.letFirstNotNull { it?.uppercase() })
 		assertEquals(null, listOf<String?>(null, null).letFirstNotNull { it })
+		
+		val array = arrayOf(null, "foo", "bar")
+		assertEquals("FOO", array.letFirstNotNull { it?.uppercase() })
+		assertEquals(null, arrayOf<String?>(null, null).letFirstNotNull { it })
 	}
 	
 	@Test

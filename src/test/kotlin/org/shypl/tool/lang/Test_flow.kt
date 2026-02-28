@@ -167,4 +167,10 @@ class Test_flow {
 		assertFalse("A".onIs<Int> { affected = true })
 		assertFalse(affected)
 	}
+	
+	@Test
+	fun `check takeIf`() {
+		assertEquals(1, 1.takeIf(true))
+		assertEquals(null, 1.takeIf(false))
+	}
 }

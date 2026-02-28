@@ -10,6 +10,9 @@ class Test_numbers {
 		assertEquals(1, 0 plusSafePositive 1)
 		assertEquals(0, 0 plusSafePositive -1)
 		assertEquals(Int.MAX_VALUE, Int.MAX_VALUE plusSafePositive 1)
+		
+		assertEquals(3, 5 plusSafePositive -2)
+		assertEquals(0, 1 plusSafePositive -2)
 	}
 	
 	@Test
@@ -19,6 +22,8 @@ class Test_numbers {
 		assertEquals(2, 1 minusSafePositive -1)
 		assertEquals(0, 1 minusSafePositive 2)
 		assertEquals(Int.MAX_VALUE, Int.MAX_VALUE minusSafePositive -1)
+		
+		assertEquals(Int.MAX_VALUE, (Int.MAX_VALUE - 1) minusSafePositive -2)
 	}
 	
 	@Test
@@ -27,6 +32,9 @@ class Test_numbers {
 		assertEquals(1L, 0L plusSafePositive 1)
 		assertEquals(0L, 0L plusSafePositive -1)
 		assertEquals(Long.MAX_VALUE, Long.MAX_VALUE plusSafePositive 1)
+		
+		assertEquals(3L, 5L plusSafePositive -2)
+		assertEquals(0L, 1L plusSafePositive -2L)
 	}
 	
 	@Test
@@ -36,5 +44,7 @@ class Test_numbers {
 		assertEquals(2L, 1L minusSafePositive -1)
 		assertEquals(0L, 1L minusSafePositive 2)
 		assertEquals(Long.MAX_VALUE, Long.MAX_VALUE minusSafePositive -1)
+		
+		assertEquals(Long.MAX_VALUE, (Long.MAX_VALUE - 1) minusSafePositive -2)
 	}
 }
