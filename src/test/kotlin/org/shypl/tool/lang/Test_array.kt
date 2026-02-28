@@ -11,6 +11,6 @@ class Test_array {
 		assertEquals(0, EMPTY_BYTE_ARRAY.size)
 		assertEquals(0, EMPTY_INT_ARRAY.size)
 		assertEquals(0, EMPTY_LONG_ARRAY.size)
-		assertEquals(0, EMPTY_DOUBlE_ARRAY.size)
+		assertEquals(0, EMPTY_DOUBLE_ARRAY.size)
 	}
 }

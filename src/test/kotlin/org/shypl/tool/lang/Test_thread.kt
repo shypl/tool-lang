@@ -31,7 +31,7 @@ class Test_thread {
 	
 	@Test
 	fun `check waitWhile timeout`() {
-		val result = waitUntil(10, 1) { true }
+		val result = waitWhile(10, 1) { true }
 		assertTrue(result)
 	}
 	

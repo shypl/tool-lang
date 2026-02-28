@@ -1,7 +1,7 @@
 package org.shypl.tool.lang
 
 fun checkCollectionIndex(index: Int, size: Int) {
-	if (index < 0 || index >= size) {
+	if (index !in 0..<size) {
 		throw IndexOutOfBoundsException("index: $index, size: $size")
 	}
 }
@@ -34,8 +34,4 @@ inline fun <reified T> MutableCollection<T>.clearAndEach(action: (T) -> Unit) {
 	val array = toTypedArray()
 	clear()
 	array.forEach(action)
-}
-
-fun <E> MutableCollection<E>.addAll(vararg elements: E) {
-	addAll(elements)
 }

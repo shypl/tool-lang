@@ -7,7 +7,7 @@ fun Byte.toHexString(): String {
 }
 
 fun <A : Appendable> Byte.toHexString(target: A): A {
-	val v = toInt()
+	val v = toInt().and(0xFF)
 	target
 		.append(HEX_CHARS[v.ushr(4).and(0x0F)])
 		.append(HEX_CHARS[v.and(0x0F)])
