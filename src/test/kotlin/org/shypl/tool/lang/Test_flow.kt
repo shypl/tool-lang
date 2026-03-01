@@ -96,7 +96,7 @@ class Test_flow {
 			assertEquals(1, this)
 			2
 		})
-		assertEquals(2, 2.letOn(1) { 1 })
+		assertEquals(2, 2.runOn(1) { 1 })
 	}
 	
 	@Test
@@ -153,6 +153,20 @@ class Test_flow {
 		
 		assertEquals(1, true.make({ 1 }, { 2 }))
 		assertEquals(2, false.make({ 1 }, { 2 }))
+	}
+	
+	@Test
+	fun `check make is lazy`() {
+		var onTrueCalls = 0
+		var onFalseCalls = 0
+		
+		assertEquals(1, true.make({ ++onTrueCalls }, { ++onFalseCalls + 1 }))
+		assertEquals(1, onTrueCalls)
+		assertEquals(0, onFalseCalls)
+		
+		assertEquals(2, false.make({ ++onTrueCalls }, { ++onFalseCalls + 1 }))
+		assertEquals(1, onTrueCalls)
+		assertEquals(1, onFalseCalls)
 	}
 	
 	@Test

@@ -11,6 +11,9 @@ class Test_string {
 		
 		assertEquals("abc", "a".ensureEnd("bc"))
 		assertEquals("abc", "ab".ensureEnd('c'))
+		
+		assertEquals("abc", "abc".ensureEnd(""))
+		assertEquals("", "".ensureEnd(""))
 	}
 	
 }

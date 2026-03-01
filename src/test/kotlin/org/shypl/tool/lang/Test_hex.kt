@@ -23,6 +23,7 @@ class Test_hex {
 		assertEquals("00000000", 0.toHexString())
 		assertEquals("0000000f", 15.toHexString())
 		assertEquals("00000010", 16.toHexString())
+		assertEquals("80000000", Int.MIN_VALUE.toHexString())
 		assertEquals("ffffffff", (-1).toHexString())
 		
 		assertEquals("0000000f", 15.toHexString(StringBuilder()).toString())
@@ -35,6 +36,7 @@ class Test_hex {
 	@Test
 	fun `check Long toHexString`() {
 		assertEquals("0000000000000000", 0L.toHexString())
+		assertEquals("8000000000000000", Long.MIN_VALUE.toHexString())
 		assertEquals("ffffffffffffffff", (-1L).toHexString())
 		
 		assertEquals("000000000000000f", 15L.toHexString(StringBuilder()).toString())
@@ -48,9 +50,11 @@ class Test_hex {
 	fun `check ByteArray toHexString`() {
 		assertEquals("0102030405", byteArrayOf(1, 2, 3, 4, 5).toHexString())
 		assertEquals("01:02:03:04:05", byteArrayOf(1, 2, 3, 4, 5).toHexString(':'))
+		assertEquals("0f", byteArrayOf(0x0F.toByte()).toHexString(':'))
 		
 		assertEquals("010203", byteArrayOf(1, 2, 3).toHexString(StringBuilder()).toString())
 		assertEquals("01:02:03", byteArrayOf(1, 2, 3).toHexString(StringBuilder(), ':').toString())
+		assertEquals("0f", byteArrayOf(0x0F.toByte()).toHexString(StringBuilder(), ':').toString())
 		
 		assertEquals("", byteArrayOf().toHexString())
 		assertEquals("", byteArrayOf().toHexString(':'))

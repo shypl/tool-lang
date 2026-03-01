@@ -34,6 +34,25 @@ class Test_collections {
 	}
 	
 	@Test
+	fun `check letFirstNotNull short circuit`() {
+		var listCalls = 0
+		val listResult = listOf(1, 2, 3, 4).letFirstNotNull {
+			listCalls++
+			if (it == 3) "ok" else null
+		}
+		assertEquals("ok", listResult)
+		assertEquals(3, listCalls)
+		
+		var arrayCalls = 0
+		val arrayResult = arrayOf(1, 2, 3, 4).letFirstNotNull {
+			arrayCalls++
+			if (it == 2) "ok" else null
+		}
+		assertEquals("ok", arrayResult)
+		assertEquals(2, arrayCalls)
+	}
+	
+	@Test
 	fun `check clearAndEach`() {
 		val list = mutableListOf(1, 2, 3)
 		val result = mutableListOf<Int>()

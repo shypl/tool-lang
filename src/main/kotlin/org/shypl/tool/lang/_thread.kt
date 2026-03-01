@@ -13,7 +13,8 @@ inline fun waitWhileLater(maxTimeoutMillis: Int, checkTimeoutMillis: Int = 10, c
 	waitFor(false, maxTimeoutMillis, checkTimeoutMillis, condition)
 
 
-inline fun waitFor(expected: Boolean, maxTimeoutMillis: Int, checkTimeoutMillis: Int = 10, condition: () -> Boolean): Boolean {
+@PublishedApi
+internal inline fun waitFor(expected: Boolean, maxTimeoutMillis: Int, checkTimeoutMillis: Int = 10, condition: () -> Boolean): Boolean {
 	var result: Boolean
 	val checkTime = checkTimeoutMillis.toLong()
 	val maxTime = maxTimeoutMillis.toLong() * 1_000_000L
