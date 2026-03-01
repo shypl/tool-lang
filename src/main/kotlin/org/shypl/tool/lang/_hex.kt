@@ -118,7 +118,6 @@ fun ByteArray.toHexString(separator: Char): String {
 	return chars.concatToString()
 }
 
-
 fun <A : Appendable> ByteArray.toHexString(target: A): A {
 	if (isEmpty()) return target
 	repeat(size) {

@@ -20,7 +20,13 @@ internal inline fun waitFor(expected: Boolean, maxTimeoutMillis: Int, checkTimeo
 	val maxTime = maxTimeoutMillis.toLong() * 1_000_000L
 	val startTime = System.nanoTime()
 	do {
-		Thread.sleep(checkTime)
+		try {
+			Thread.sleep(checkTime)
+		}
+		catch (_: InterruptedException) {
+			Thread.currentThread().interrupt()
+			return condition()
+		}
 		result = condition()
 	}
 	while (result != expected && System.nanoTime() - startTime < maxTime)
