@@ -77,10 +77,6 @@ inline fun <T> Boolean.make(onTrue: T, onFalse: T) = if (this) onTrue else onFal
 
 inline fun <T> Boolean.make(onTrue: () -> T, onFalse: () -> T) = if (this) onTrue() else onFalse()
 
-@Suppress("NOTHING_TO_INLINE")
-inline fun <T> T.takeIf(predicate: Boolean) = if (predicate) this else null
-
-
 inline fun <reified T : Any> Any?.onIs(action: (T) -> Unit): Boolean {
 	return if (this is T) {
 		action(this)

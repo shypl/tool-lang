@@ -27,9 +27,13 @@ publishing {
 	publications.create<MavenPublication>("Library") {
 		from(components["java"])
 	}
-	repositories.maven(project.property("shypl.maven.url") as String).credentials {
-		username = project.property("shypl.maven.username") as String
-		password = project.property("shypl.maven.password") as String
+	if (project.hasProperty("shypl.maven.url")) {
+		repositories.maven(project.property("shypl.maven.url") as String) {
+			credentials {
+				username = project.property("shypl.maven.username") as String
+				password = project.property("shypl.maven.password") as String
+			}
+		}
 	}
 }
 
