@@ -17,7 +17,7 @@ inline fun waitWhileLater(maxTimeoutMillis: Int, checkTimeoutMillis: Int = 10, c
 internal inline fun waitFor(expected: Boolean, maxTimeoutMillis: Int, checkTimeoutMillis: Int = 10, condition: () -> Boolean): Boolean {
 	var result: Boolean
 	val checkTime = checkTimeoutMillis.toLong()
-	val maxTime = maxTimeoutMillis.toLong() * 1_000_000L
+	val maxTime = maxTimeoutMillis * 1_000_000L
 	val startTime = System.nanoTime()
 	do {
 		try {

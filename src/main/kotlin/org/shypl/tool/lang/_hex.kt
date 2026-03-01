@@ -26,7 +26,7 @@ fun Int.toHexString(): String {
 	return CharArray(8).also { toHexString(it, 0) }.concatToString()
 }
 
-fun <A : Appendable>Int.toHexString(target: A): A {
+fun <A : Appendable> Int.toHexString(target: A): A {
 	target
 		.append(charAt(28))
 		.append(charAt(24))
