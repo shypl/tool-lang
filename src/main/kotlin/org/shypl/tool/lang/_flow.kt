@@ -30,6 +30,13 @@ inline fun <T> T.letEx(value: T, block: (T) -> T): T {
 	return if (this != value) block(this) else this
 }
 
+inline fun <T> T.letIf(predicate: Boolean, block: (T) -> T): T {
+	return if (predicate) block(this) else this
+}
+
+inline fun <T> T.letIf(predicate: (T) -> Boolean, block: (T) -> T): T {
+	return if (predicate(this)) block(this) else this
+}
 
 inline fun <T> T.runOn(value: T, block: T.() -> T): T {
 	return if (this == value) block() else this
@@ -83,4 +90,8 @@ inline fun <reified T : Any> Any?.onIs(action: (T) -> Unit): Boolean {
 		true
 	}
 	else false
+}
+
+inline fun <A, reified T : Any> A.cast(failMessage: (A) -> String): T {
+	return this as? T ?: throw IllegalStateException(failMessage(this))
 }
